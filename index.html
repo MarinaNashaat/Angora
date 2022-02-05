@@ -8,6 +8,8 @@
     href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="plugins/OwlCarousel2-2.3.4/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="plugins/OwlCarousel2-2.3.4/css/owl.theme.default.min.css">
   <link rel="stylesheet" href="css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
 
@@ -16,11 +18,11 @@
 
 <body>
   <!-- navigation bar Start -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top py-3">
+  <nav id="main-nav" class="navbar navbar-expand-lg  fixed-top py-3">
     <div class="container py-1 nav-container">
       <a class="navbar-brand py-0" href="#">
 
-        <img src="images/logo/logo-red.png" alt="" class="d-inline-block align-text-top" />
+        <img id="logo-brand" src="images/logo/logo-red.png" alt="" class="d-inline-block align-text-top" />
       </a>
       <button class="navbar-toggler p-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,14 +41,12 @@
           <li class="nav-item">
             <a class="nav-link py-lg-0 px-3" href="#team">Team</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link py-lg-0 px-3" href="#">Projects</a>
-          </li>
+
           <li class="nav-item">
             <a class="nav-link py-lg-0 px-3" href="#service">Services</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link py-lg-0 px-3" href="#">Blog</a>
+            <a class="nav-link py-lg-0 px-3" href="#review">Testemonial</a>
           </li>
           <li class="nav-item">
             <a class="nav-link py-lg-0 px-3" href="#contact">Contact</a>
@@ -72,37 +72,26 @@
 
   <!-- fixed btn -->
 
-  <div class="setting-btn-content d-none d-lg-block">
-    <a href="#" class="set-btn">
-      <i class="fas fa-cogs d-flex justify-content-center align-items-center translate-middle text-white"></i>
-    </a>
-    <div class="setting-details bg-white p-3">
 
-      <h3 class="fw-bold">HEADER STYLE</h3>
-      <p class="mb-0">
-        <a href="" class="active-set fw-bold txt-fs">Image Slideshow</a>
-        <i class="fas fa-check txt-fs ms-1"></i>
-      </p>
-      <p class="mb-0">
-        <a href="" class="link-list txt-fs">Single Image</a>
-      </p>
-      <p class="mb-0">
-        <a href="" class="link-list txt-fs">Video Background</a>
-      </p>
-      <hr>
+  <div class="setting-btn-content">
+
+    <div class="setting-details bg-white shadow">
       <h3 class="fw-bold">COLORS</h3>
+      <hr>
       <div class="setting-colors">
-        <span title="Red" style="background-color: #f25454;" class="me-1"></span>
-        <span title="Blue" style="background-color: #4e9cb5;" class="me-1"></span>
-        <span title="Green" style="background-color: #24bca4;" class="me-1"></span>
-        <span title="Turquoise" style="background-color: #46cad7;" class="me-1"></span>
-        <span title="Purple" style="background-color: #c86f98;" class="me-1"></span>
-        <span title="Orange" style="background-color: #ee8f67;" class="me-1"></span>
-        <span title="Yellow" style="background-color: #e4d20c;" class="me-1"></span>
-        <span title="Grey" style="background-color: #6b798f;" class="me-1"></span>
+        <span title="Red" style="background-color: #f25454; border: 1px solid #f38383 ;" class="me-1"></span>
+        <span title="Blue" style="background-color: #4e9cb5; border: 1px solid #67aac0;" class="me-1"></span>
+        <span title="Green" style="background-color: #24bca4; border: 1px solid #2dd7bc;" class="me-1"></span>
+        <span title="Turquoise" style="background-color: #46cad7; border: 1px solid #63d2dd;" class="me-1"></span>
+        <span title="Purple" style="background-color: #c86f98; border: 1px solid #d289aa;" class="me-1"></span>
+        <span title="Orange" style="background-color: #ee8f67; border: 1px solid #f2a787;" class="me-1"></span>
+        <span title="Yellow" style="background-color: #e4d20c; border: 1px solid #ebdb30;" class="me-1"></span>
+        <span title="Grey" style="background-color: #6b798f; border: 1px solid #96a0b0;" class="me-1"></span>
       </div>
     </div>
-
+    <a class="set-btn shadow">
+      <i class="fas fa-cogs d-flex justify-content-center align-items-center translate-middle text-white"></i>
+    </a>
   </div>
 
   <!-- header section Start-->
@@ -163,7 +152,7 @@
       </button>
 
 
-      <a href="#about"
+      <a href="#about" id="scrollDown"
         class="scroll-down position-absolute start-50 translate-middle-x rounded-pill d-md-flex justify-content-center align-items-center d-none">
         <span class="dott position-absolute start-50 translate-middle-x rounded-circle"></span>
       </a>
@@ -757,7 +746,7 @@
 
   <!-- footer section Start -->
   <footer id="footer" class="position-relative">
-    <a href="#home"
+    <a href="#home" id="topBtn"
       class="scroll-top position-absolute translate-middle start-50 rounded-circle text-center d-flex justify-content-center align-items-center ">
       <i class="fas fa-chevron-up text-white"></i>
     </a>
@@ -892,9 +881,19 @@
     </div>
   </footer>
   <!-- footer section End -->
+  <!-- loader page start -->
+  <div id="loaderPage">
+    <div class="spinner"></div>
+  </div>
+  <!-- loader page end -->
 
-
+  <script src="js/jquery-3.6.0.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="plugins/counterUp/js/waypoints.min.js"></script>
+  <script src="plugins/counterUp/js/jquery.counterup.min.js"></script>
+  <script src="plugins/Isotope/isotope.pkgd.min.js"></script>
+  <script src="plugins/OwlCarousel2-2.3.4/js/owl.carousel.min.js"></script>
+  <script src="js/main.js"></script>
 </body>
 
 </html>

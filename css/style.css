@@ -2,6 +2,7 @@
 
 :root {
     --mainColor    : #f25454;
+    --hover-color  : #f38383;
     --footerColor  : #b0b0b0;
     --titleTxtColor: #999;
     --grayBG       : #fafafa;
@@ -102,19 +103,35 @@ body {
     color           : #666;
     font-family     : 'Open Sans', sans-serif;
     background-color: #fff;
+    overflow-y      : hidden;
 }
 
 /* ////////////navbar section///////////////////// */
+
 .navbar {
-    box-shadow: 5px 5px 10px rgba(31, 31, 31, 0.07);
+    border-bottom     : 1px solid rgba(255, 255, 255, 0.2);
+    transition        : all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition   : all 0.5s ease-in-out;
+    -ms-transition    : all 0.5s ease-in-out;
+    -o-transition     : all 0.5s ease-in-out;
+}
+
+.navbar.active-nav {
+    box-shadow      : 5px 5px 10px rgba(31, 31, 31, 0.07);
+    background-color: #fff;
 }
 
 .navbar .navbar-nav .nav-link {
-    color         : #282828;
+    color         : #fff;
     font-weight   : 600;
     font-size     : 0.8175rem;
     letter-spacing: 0.5px;
     font-family   : 'Poppins', sans-serif;
+}
+
+#navbarNav a.gy-link {
+    color: #282828;
 }
 
 .navbar .navbar-nav .nav-link.active {
@@ -136,7 +153,7 @@ body {
     width             : 22px;
     height            : 3px;
     color             : #fff;
-    background-color  : #282828;
+    background-color  : #ffffff ;
     display           : flex;
     margin            : 0.25rem auto;
     transition        : background-color 0.5s ease-in-out;
@@ -151,7 +168,7 @@ body {
 }
 
 .nav-social-link {
-    color: #282828;
+    color: #ffffff;
 
 }
 
@@ -164,22 +181,25 @@ body {
 /* /////////////fixed setting btn//////////// */
 
 .setting-btn-content {
-    position: fixed;
-    top     : 33%;
-    width   : 50%;
-    z-index : 999;
+    position       : fixed;
+    top            : 20%;
+    left           : -165px;
+    width          : 300px;
+    z-index        : 999;
+    display        : flex;
+    justify-content: flex-start;
 
 }
 
 .setting-details {
-    position          : absolute;
-    left              : -420px;
-    top               : 40px;
+    width             : 55%;
+    height            : 100%;
     transition        : all 0.5s ease-in-out;
     -webkit-transition: all 0.5s ease-in-out;
     -moz-transition   : all 0.5s ease-in-out;
     -ms-transition    : all 0.5s ease-in-out;
     -o-transition     : all 0.5s ease-in-out;
+    padding           : 10px;
 }
 
 
@@ -187,27 +207,16 @@ body {
     font-size: 1rem;
 }
 
-.setting-details .active-set {
-    color: #1f2528;
-}
-
-.setting-details .active-set:hover {
-    color: #1f2528 !important;
-}
-
-.setting-details .link-list {
-    color: #808080;
-}
-
-.setting-details .link-list:hover {
-    color: #666 !important;
-}
 
 .setting-details hr {
     background-color: #ccc;
     border          : none;
     height          : 1px;
     opacity         : 1;
+}
+
+.setting-colors {
+    text-align: center;
 }
 
 .setting-colors span {
@@ -225,18 +234,15 @@ body {
 .set-btn {
     width             : 35px;
     height            : 35px;
-    display           : block;
     background-color  : #1f2528;
-    text-align        : center;
-    position          : absolute;
-    left              : 0px;
+    cursor            : pointer;
     padding           : 20px;
-    top               : 0;
     transition        : all 0.5s ease-in-out;
     -webkit-transition: all 0.5s ease-in-out;
     -moz-transition   : all 0.5s ease-in-out;
     -ms-transition    : all 0.5s ease-in-out;
     -o-transition     : all 0.5s ease-in-out;
+
 
 }
 
@@ -245,9 +251,7 @@ body {
     color           : #fff !important;
 }
 
-.set-btn:hover~.setting-details {
-    left: 0;
-}
+
 
 
 /* /////////////////header section///////////// */
@@ -501,7 +505,7 @@ body {
 }
 
 .team-img .team-layer {
-    background-color  : rgba(242, 84, 84, 0.85);
+    background-color  : var(--mainColor);
     opacity           : 0;
     transition        : all 0.3s ease-in-out;
     -webkit-transition: all 0.3s ease-in-out;
@@ -517,7 +521,7 @@ body {
 
 
 .team-item:hover .team-img .team-layer {
-    opacity          : 1;
+    opacity          : 0.85;
     transform        : translateY(0px);
     -webkit-transform: translateY(0px);
     -moz-transform   : translateY(0px);
@@ -529,7 +533,9 @@ body {
     margin: 0 12px;
 
 }
-
+.team-img .team-layer .team-link:hover {
+color: #fff !important;
+}
 .team-info h5 {
     font-size: 1rem;
 }
@@ -554,7 +560,7 @@ body {
 }
 
 .contact-btn:hover {
-    background-color: #f38383;
+    background-color: var(--hover-color);
     color           : #fff !important;
 }
 
@@ -656,7 +662,8 @@ footer {
 }
 
 .scroll-top {
-    background-color  : rgba(242, 84, 84, 0.5);
+    background-color  : var(--mainColor);
+    opacity           : 0.5;
     width             : 50px;
     height            : 50px;
     top               : -3px;
@@ -668,7 +675,7 @@ footer {
 }
 
 .scroll-top:hover {
-    background-color: var(--mainColor);
+    opacity: 1;
 }
 
 .footer-1 {
@@ -726,6 +733,55 @@ footer {
     font-weight: 600;
 }
 
+/* /////////////loader page///////////// */
+#loaderPage {
+    position        : fixed;
+    background-color: rgb(0, 0, 0);
+    top             : 0;
+    left            : 0;
+    right           : 0;
+    bottom          : 0;
+    z-index         : 9999999999999;
+    display         : flex;
+    justify-content : center;
+    align-items     : center;
+}
+
+.spinner {
+    width           : 40px;
+    height          : 40px;
+    margin          : 100px auto;
+    background-color: rgb(255, 255, 255);
+
+    border-radius    : 100%;
+    -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+    animation        : sk-scaleout 1.0s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-scaleout {
+    0% {
+        -webkit-transform: scale(0)
+    }
+
+    100% {
+        -webkit-transform: scale(1.0);
+        opacity          : 0;
+    }
+}
+
+@keyframes sk-scaleout {
+    0% {
+        -webkit-transform: scale(0);
+        transform        : scale(0);
+    }
+
+    100% {
+        -webkit-transform: scale(1.0);
+        transform        : scale(1.0);
+        opacity          : 0;
+    }
+}
+
 /* ////////////media queries///////////// */
 @media screen and (max-width:768px) {
 
@@ -766,7 +822,6 @@ footer {
 
     .navbar-collapse {
         position        : absolute;
-        margin-top      : 15px;
         top             : 90%;
         left            : 0;
         background-color: #fff;
@@ -774,5 +829,12 @@ footer {
 
     }
 
+    .navbar-collapse .navbar-nav .nav-link {
+        color: #282828;
+    }
+
+    .navbar-nav {
+        margin: 7.5px -15px;
+    }
 
 }
